@@ -1,0 +1,21 @@
+<div class="bill"></div>
+
+<h3 id="tenstore">The Ten Dollar Store </h3>
+
+<div class="item-margin">
+		<ul>
+		<!-- prints error messages from validation rules in model -->
+		    <% @item.errors.full_messages.each do |msg| %>
+		        <li> <%= msg %></li>
+		    <% end %>
+		</ul><br><br>
+
+		<h2 id="title">Edit <%= @item.item_tag%></h2><br><br>
+
+
+		<%= render "items/form", object: @item %>
+
+
+		<h3><%= link_to "Delete #{@item.item_tag}", item_path(@item), method: :delete, data: {confirm: "Are you sure you want to delete #{@item.item_tag}?"} %></h3>
+</div>
+
