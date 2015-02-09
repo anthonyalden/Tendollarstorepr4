@@ -2,7 +2,70 @@
 <div class="bill"></div>
   
 <!-- loging fields (boxed) on buyers screen -->
-<div class="login">
+
+<button type="button" class="btn btn-info btn-register btn-lg login" data-toggle="modal" data-target="#loginModal">Log In</button>
+
+<button type="button" class="btn btn-info btn-register btn-lg create-account" data-toggle="modal" data-target="#newAccountModal">Create Account</button>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-med">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Log In To The Ten Dollar Store</h2>
+              </div>
+
+              <div class="modal-body form-align"> 
+                <%= bootstrap_form_for :login, url: login_path  do |f| %>
+                  <%= f.text_field :username, label: "User Name:", class: "form-font" %>
+                  <%= f.password_field :password, label: "Password:", class: "form-font" %>
+
+                  <%= f.submit 'Log In', class: "btn btn-info" %>
+              <% end %>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div> <!-- end modal content div -->
+          </div> <!-- end modal dialog div -->
+        </div> <!-- end log in modal -->
+
+<div class="modal fade" id="newAccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-med">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Create Account</h2>
+              </div>
+
+              <div class="modal-body form-align"> 
+                <%= bootstrap_form_for :seller, url: {:controller=> 'sellers', :action => "create"} do |f| %>
+        
+               
+                  <%= f.text_field :first_name, label: "First Name", class: "form-font" %>
+
+                  <%= f.text_field :last_name, label: "Last Name", class: "form-font" %>
+
+                  <%= f.text_field :phone, label: "Phone Number", class: "form-font" %>
+
+                  <%= f.text_field :email, label: "Email Address", class: "form-font" %>
+
+                  <%= f.text_field :username, label: "User Name", class: "form-font" %>
+
+                  <%= f.password_field :password, label: "Password", class: "form-font" %>
+                  <%= f.submit %>
+                <% end %>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div> <!-- end modal content div -->
+          </div> <!-- end modal dialog div -->
+        </div> <!-- end log in modal -->
+
+
+
+<!-- <div class="login">
     <%= form_for :login, url: '/login' do |f| %>
 
       <%= f.label :username %> 
@@ -18,7 +81,7 @@
         <% end %>
     </div>
 
-</div>
+</div> -->
 
 
 

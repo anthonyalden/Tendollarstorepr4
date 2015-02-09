@@ -37,11 +37,46 @@ body {
 /* used to style login form in buyersindex */
 .login{
 	position: relative;
-	float: right;
+	float: left;
 	font-size: 13px;
-	top: -40px;
-	margin-right: 30px;
+	top: -105px;
+	margin-left: 250px;
 }
+
+.logout-btn{
+	position: relative;
+	float: left;
+	top: -50px;
+	margin-left: 30px;
+}
+
+.create-account{
+	position: relative;
+	float: left;
+	font-size: 13px;
+	top: -105px;
+	margin-left: 10px;
+}
+
+.edit-account{
+	position: relative;
+	float: left;
+	font-size: 13px;
+	top: -105px;
+	margin-left: 300px;
+}
+
+
+/*.all-items{
+	position: relative;
+	float: left;
+	font-size: 13px;
+	top: -10px;
+	margin-left: 105px;
+	color: white;
+	background-color: powderblue;
+
+}*/
 /* used to make ten dollar bill animate and shadow */
 .bill{
 	background-image: url("https://s3-us-west-1.amazonaws.com/carrierwave-tony/ten_dollar_bill.jpg");
@@ -79,19 +114,44 @@ nav.menu {
 	background-color: beige;
 	position: relative;
 	
-	a
-	{
-		margin: 0 0 0 20px;
+	a {
+		// margin: 0 0 0 20px;
 		/* centers menu items in menu bar*/
-		top: 17px;
-		position: relative;
+		top: 20px;
+		margin-left: 190px;
 		text-decoration: none;
-		background-color: #E8E680;
+		background-color: #58B9D0;
+		color: white;
 		padding: 10px;
 		border-radius: 10px;
 	}
+	a:hover{
+		background-color: #00B8E6;
+	}
+
 
 }
+
+nav.logout {
+	
+	a {
+		// margin: 0 0 0 20px;
+		/* centers menu items in menu bar*/
+		margin-top: 0px;
+		margin-left: 100px;
+		text-decoration: none;
+		background-color: #58B9D0;
+		color: white;
+		padding: 10px;
+		border-radius: 10px;
+	}
+	a:hover{
+		background-color: #00B8E6;
+	}
+
+
+}
+
 
 /* used to style menus in shared/_navigation */
 .menu-item{
