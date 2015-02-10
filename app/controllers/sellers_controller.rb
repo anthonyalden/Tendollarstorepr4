@@ -51,7 +51,7 @@ class SellersController < ApplicationController
 		@seller.username = @seller.username.downcase
 		if @seller.update_attributes(seller_params)
 			# return to the sellers item index page after update to user info
-			redirect_to items_path
+			redirect_to request.referer
 		else
 			render "edit"
 		end

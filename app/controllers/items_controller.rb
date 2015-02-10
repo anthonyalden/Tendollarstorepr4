@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 		
 		if @item.save
 			# display item index page for seller after new items is created
-		   redirect_to items_path
+		   redirect_to request.referer
 		else
 			render "new"
 		end
@@ -45,6 +45,7 @@ class ItemsController < ApplicationController
 		flash[:notice] = nil
 		@item = Item.find(params[:id])
 		@seller = Seller.new.username
+		
 
 	end
 
@@ -53,7 +54,7 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		if @item.update_attributes(item_params)
 			# display item index page for seller after existing item is updated
-		  redirect_to seller_path(current_user)
+		  redirect_to request.referer
 		else
 			redirect_to seller_path(current_user)
 		end
