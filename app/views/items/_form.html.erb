@@ -7,17 +7,17 @@
           <div>
 
 
-            <%= f.label :price %>:
-            <%= f.text_field :price%><br><br>
+           
+            <%= f.text_field :price, label: "Price" %><br><br>
             
-            <%= f.label :item_tag, "Item" %>:
-            <%= f.text_area :item_tag , size: "35x3" %><br><br>
+            
+            <%= f.text_area :item_tag , size: "35x3", label: "Item" %><br><br>
 
-            <%= f.label :description %>:
-            <%= f.text_area :description, size: "35x3" %><br><br>
+            
+            <%= f.text_area :description, size: "35x3", label: "Description" %><br><br>
 
             <%= f.label :shipping_cost %>:
-            <%= f.text_field :shipping_cost %><br><br>  
+            <%= f.text_field :shipping_cost, label: "Shipping Cost" %><br><br>  
 
             <%= f.label :username %>:
             

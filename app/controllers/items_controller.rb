@@ -53,9 +53,9 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		if @item.update_attributes(item_params)
 			# display item index page for seller after existing item is updated
-		   redirect_to items_path
+		  redirect_to seller_path(current_user)
 		else
-			render "edit"
+			redirect_to seller_path(current_user)
 		end
 		
 	end

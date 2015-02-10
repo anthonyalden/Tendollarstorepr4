@@ -1,29 +1,40 @@
-      
-<div class="item-margin">
-      <%= form_for @seller do |f| %>
-        
-          <%= f.label :first_name %>
-          <%= f.text_field :first_name %>
 
-          <%= f.label :last_name %>
-          <%= f.text_field :last_name %>
+        <div class="modal fade" id="newAccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-med">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Create Account</h2>
+              </div>
 
-          <%= f.label :phone %>
-          <%= f.text_field :phone %>
+              <div class="modal-body form-align"> 
+                <%= bootstrap_form_for :seller, url: {:controller=> 'sellers', :action => "create"} do |f| %>
+                    
+                    <%= f.text_field :first_name, label: "First Name" %>
 
-          <%= f.label :email %>
-          <%= f.text_field :email, size: "50px" %><br><br>
+                   
+                    <%= f.text_field :last_name, label: "Last Name" %>
 
-          <%= f.label "User Name" %>
-          <%= f.text_field :username, size: "30px" %>
+                 
+                    <%= f.text_field :phone, label: "Phone" %>
 
-          <%= f.label :password, class: "form"%> 
-          <%= f.password_field :password, size: "30px" %>
-         
-        
-        <div>
-          <%= f.submit %> <br><br>
-          <%= link_to "Cancel", items_path, {:style=>'color:blue;', :class => "css_class"} %>
-        </div>
-      <% end %>
-</div>
+                  
+                    <%= f.text_field :email, size: "50px", label: "Email" %><br><br>
+
+    
+                    <%= f.text_field :username, size: "30px", label: "User Name:" %>
+
+                    
+                    <%= f.password_field :password, size: "30px", label: "Password" %>
+                   
+                    <%= f.submit %>
+                  <% end %>
+                </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div> <!-- end modal content div -->
+          </div> <!-- end modal dialog div -->
+        </div> <!-- end log in modal -->
+
+          

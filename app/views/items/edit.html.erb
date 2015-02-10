@@ -13,7 +13,7 @@
 		<h2 id="title">Edit <%= @item.item_tag%></h2><br><br>
 
 
-		<%= render "items/form", object: @item %>
+		<!-- <%= render "items/form", object: @item %> -->
 
 
 		<h3><%= link_to "Delete #{@item.item_tag}", item_path(@item), method: :delete, data: {confirm: "Are you sure you want to delete #{@item.item_tag}?"} %></h3>

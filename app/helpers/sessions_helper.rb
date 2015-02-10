@@ -4,12 +4,13 @@ module SessionsHelper
 	# used througout to when a user is required as a parameter or object
 	def current_user
 		
+		if session[:user_id] 
 				@current_user ||= Seller.find(session[:user_id])
+		end
+# "54d97e7e41616c4aba000000"
+					# session[:user_id])
 	end
 
-	def current_seller
-		@seller 
-	end
 
 	# used as a flag throughout to let the system know if a seller is logged in so 
 	# that pages can be customize to either a buyer or seller.  If logged_in is true

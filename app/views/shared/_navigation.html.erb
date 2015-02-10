@@ -4,19 +4,24 @@
 	
 	<nav class="menu">
 
-	  <%= link_to "Edit Account", edit_seller_path(current_user), class: "menu-item" %>
-	  <%= link_to "Log Out", logout_path , method: 'delete', class: "menu-item" %>
-	  <%= link_to "Display All Seller's Items", items_path, class: "menu-item" %>
-	  <%= link_to "Seller's Items Listing", current_user, class: "menu-item" %>
-	  <%= link_to "Add Item", new_item_path,class:"menu-item" %>
+	 <div class="navwrapper">
+	  <%= link_to "Log Out", logout_path , method: 'delete', class: "btn btn-info btn-register btn-lg" %>
+	  <%= link_to "Display All Seller's Items", items_path, class: "btn btn-info btn-register btn-lg" %>
+	  <%= link_to "Edit Items For Sale", current_user, class: "btn btn-info btn-register btn-lg" %>
+
+	  <button type="button" class="btn btn-info btn-register btn-lg" data-toggle="modal" data-target="#addItemModal">Add Item</button>
+	  
+
+	  <button type="button" class="btn btn-info btn-register btn-lg" data-toggle="modal" data-target="#editAccountModal">Edit Account</button>
+	 </div> <!-- end navwrapper -->
 	</nav>
 		
 <%end %>
 
 <!-- if the user is a buyer and not a seller display these menu options -->
-<% if logged_in? == false %>
+<% if !logged_in? %>
 	<nav class="menu">
-	  <%= link_to "All Items", items_path, class: "all-items" %>
+	  <%= link_to "Show All Items", items_path, class: "btn btn-info btn-register btn-lg all-items-btn" %>
 	</nav><br>
 <% end %>
 
