@@ -12,6 +12,6 @@ class Item
   validates :price, presence: true
   validates :item_tag, presence: true#. message: "Item Must Vave a Value Entered."
   validates :description, presence: true#, message: "Description Must Have a Value Entered."
-  validates_numericality_of :shipping_cost, greater_than: 0#, message: "Shipping Cost Must be Larger than Zero Dollars"
+  validates_numericality_of :shipping_cost, greater_than_or_equal_to: 0#, message: "Shipping Cost cannot be less than Zero Dollars"
   validates :shipping_cost, presence: true
 end

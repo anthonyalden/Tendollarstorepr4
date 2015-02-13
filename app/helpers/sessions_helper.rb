@@ -3,7 +3,8 @@ module SessionsHelper
 	# returns the current seller user from a given login session
 	# used througout to when a user is required as a parameter or object
 	def current_user
-		
+
+		# only set current user if session is not null
 		if session[:user_id] 
 				@current_user ||= Seller.find(session[:user_id])
 		end
@@ -17,7 +18,6 @@ module SessionsHelper
 	# this means that the seller is logged in and the system should display seller
 	# thoses things relevent to a seller and not a buyer
 	def logged_in?
-		
 		session[:user_id] != nil
 	end
 

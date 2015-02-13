@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
 gem 'mongoid', '~> 4.0.0'
+gem 'mongoid-rspec', '~> 2.1.0'
 gem 'figaro'
 gem'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
@@ -30,7 +31,10 @@ gem 'jquery-rails'
 # gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
-
+gem 'rspec-rails'
+gem 'factory_girl_rails', "~> 4.0"
+gem 'shoulda'
+gem 'guard'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.2.0'

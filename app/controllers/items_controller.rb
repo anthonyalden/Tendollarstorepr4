@@ -7,12 +7,12 @@ class ItemsController < ApplicationController
 
 	      # condtionally render buyers page or sellers page depending if 
 	      # 	seller is logged in index is seller page buyers index is buyers page
-		  if logged_in? == false
-		  	@items = Item.where({ :$or => [ { :description => /.*#{params[:q]}.*/i }, { :item_tag => /.*#{params[:q]}.*/i } ] })
-		  	render "buyerindex"
-		  else
+		  if logged_in?
 		  	@items = current_user.items.where({ :$or => [ { :description => /.*#{params[:q]}.*/i }, { :item_tag => /.*#{params[:q]}.*/i } ] })
 		  	render "index"
+		  else
+		  	@items = Item.where({ :$or => [ { :description => /.*#{params[:q]}.*/i }, { :item_tag => /.*#{params[:q]}.*/i } ] })
+		  	render "buyerindex"
 		  end
 		
 	end

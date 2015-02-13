@@ -24,7 +24,8 @@
 # 					search_tags: "lantern, flashlight, light, lamp",
 # 					shipping_cost: 4.99, sold: false}])
 
-sellers = Seller.create([{username: "tjamison@ewhatever.net",
+sellers = Seller.create(
+					[{username: "tjamison@ewhatever.net",
 						password: "123456789*&^",
 						first_name: "Tom",
 						last_name: "Jamison",
