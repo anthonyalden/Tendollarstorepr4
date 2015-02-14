@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
 		  	render "index"
 		  else
 		  	@items = Item.where({ :$or => [ { :description => /.*#{params[:q]}.*/i }, { :item_tag => /.*#{params[:q]}.*/i } ] })
+		  	 @order_item = current_order.order_items.new
 		  	render "buyerindex"
 		  end
 		

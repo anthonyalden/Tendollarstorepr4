@@ -1,15 +1,26 @@
-class OrderNum
+class Order
   include Mongoid::Document
-  field :order_num, type: String
-  field :order_date, type: String
-  field :seller_id, type: String
-  field :first_name, type: String
-  field :last_name, type: String
-  field :addr1, type: String
-  field :addr2, type: String
-  field :city, type: String
-  field :state, type: String
-  field :zip, type: String
-  belongs_to :seller
-  
+  field :subtotal, type: Integer
+  field :tax, type: Integer
+  field :shipping, type: Integer
+  field :total, type: Integer
+  field :total, type: Integer
+  field :order_date, type: Date
+  before_create :set_order_status
+  before_save :update_subtotal
+  belongs_to :order_status
+  has_many :order_items
+
+  def subtotal
+    order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+  end
+private
+  def set_order_status
+    self.order_status_id = 1
+  end
+
+  def update_subtotal
+    self[:subtotal] = subtotal
+  end
+
 end

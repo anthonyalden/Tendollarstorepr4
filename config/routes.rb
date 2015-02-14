@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   get 'orders/index'
 
   get 'orders/show'
@@ -19,7 +27,8 @@ Rails.application.routes.draw do
 
     resources :sellers
     resources :items
-
+    resource :cart, only: [:show]
+    resources :order_items, only: [:create, :update, :destroy]
     post '/login' => 'sessions#create'
     delete '/logout' => 'sessions#destroy'
 

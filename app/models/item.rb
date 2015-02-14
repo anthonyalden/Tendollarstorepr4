@@ -1,12 +1,16 @@
 class Item
   include Mongoid::Document
-  field :price, type: Float
+  field :price, type: Integer
   field :item_tag, type: String
   field :description, type: String
-  field :shipping_cost, type: Float
-  field :sold, type: Mongoid::Boolean
+  field :shipping_cost, type: Integer
+  field :active, type: Mongoid::Boolean
   validates_numericality_of :price, less_than_or_equal_to: 10.00, message: "Item Price Must be $10 or Less"
   belongs_to :seller
+  has_many :order_items
+
+  scope :active_item, -> {where(active: true)}
+  
   mount_uploader :image, AvatarUploader
 
   validates :price, presence: true
