@@ -15,13 +15,23 @@
 	 </div> <!-- end navwrapper -->
 	</nav>
 		
-<%end %>
+<%end %> <!-- End logged_in?  -->
 
 <!-- if the user is a buyer and not a seller display these menu options -->
 <% if !logged_in? %>
 	<nav class="menu">
-	  <%= link_to "Show All Items", items_path, class: "btn btn-info btn-register btn-lg all-items-btn" %>
-	</nav><br>
+		<div class="navwrapper">
+			<button type="button" class="btn btn-info btn-register btn-lg login" data-toggle="modal" data-target="#loginModal">Log In</button>
+
+			<button type="button" class="btn btn-info btn-register btn-lg create-account" data-toggle="modal" data-target="#newAccountModal">Create Account</button>
+			<%= link_to "Show All Items", items_path, class: "btn btn-info btn-register btn-lg all-items-btn" %>
+			<%= link_to "My Store", root_path, class: "btn btn-info btn-register btn-lg my-store" %> 
+			<%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-info btn-register btn-lg cart-btn" %>
+		</div>
+	
+	</nav>
+		<!-- br used to move ten dollar bill image down into place -->	  
+		<br>		
 <% end %>
 
 

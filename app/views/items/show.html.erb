@@ -19,7 +19,8 @@
 					<b>Description:</b> <%=@item.description%> <br><br>
 				</div>
 				<b>Shipping Cost:</b><%= number_to_currency(@item.shipping_cost) %><br><br>
-
+				<%= render "items/addcartform" %>
+				<br>
 				<%= link_to "Return to Items List", items_path, {:style=>'color:blue;', :class => "css_class"} %>
 			</div>
 

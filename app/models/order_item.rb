@@ -1,11 +1,13 @@
 class OrderItem
   include Mongoid::Document
-  field :unit_price, type: Integer
+  # field :unit_price, type: Integer
   field :quantity, type: Integer
-  field :total_price, type: Integer
+  # field :total_price, type: Integer
   belongs_to :item
   belongs_to :order
   before_save :finalize
+  accepts_nested_attributes_for :item
+
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :item_present

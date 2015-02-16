@@ -8,9 +8,10 @@ class Item
   validates_numericality_of :price, less_than_or_equal_to: 10.00, message: "Item Price Must be $10 or Less"
   belongs_to :seller
   has_many :order_items
-
-  scope :active_item, -> {where(active: true)}
+  # accepts_nested_attributes_for :orderitems
   
+  scope :active_item, -> {where(active: true)}
+
   mount_uploader :image, AvatarUploader
 
   validates :price, presence: true

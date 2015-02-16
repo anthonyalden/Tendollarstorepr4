@@ -1,0 +1,32 @@
+<button type="button" class="btn btn-info btn-register btn-sm" data-toggle="modal" data-target="#addCartModal">Add to Cart</button>
+
+<div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-med">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add to Cart</h2>
+      </div>
+
+      <div class="modal-body form-align"> 
+        <%= bootstrap_form_for :item, url: order_items_path  do |f| %>
+          <%= f.text_field :item_tag, label: "Item", :readonly => true, class: "form-font" %>
+          <%= f.text_field :description, label: "Item Descripton", :readonly => true, class: "form-font" %>
+          <%= f.text_field :price, label: "Price", :readonly => true, class: "form-font" %>
+          <%= f.text_field :shipping_cost, label: "Shipping Cost", :readonly => true, class: "form-font" %>
+          <%= bootstrap_form_for :orderitem, url:order_items_path do |ff| %>
+            
+            <%= ff.text_field :Quantity, label: "Quantity:", class: "form-font" %>
+            <%= ff.submit 'Add To Cart', class: "btn btn-info" %>
+            <% end %>
+
+          
+        <% end %>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div> <!-- end modal content div -->
+  </div> <!-- end modal dialog div -->
+</div> <!-- end add cart modal -->
+

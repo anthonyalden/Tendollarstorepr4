@@ -4,7 +4,6 @@ class Order
   field :tax, type: Integer
   field :shipping, type: Integer
   field :total, type: Integer
-  field :total, type: Integer
   field :order_date, type: Date
   before_create :set_order_status
   before_save :update_subtotal
