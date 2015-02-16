@@ -1,9 +1,9 @@
 class Item
   include Mongoid::Document
-  field :price, type: Integer
+  field :price, type: Float
   field :item_tag, type: String
   field :description, type: String
-  field :shipping_cost, type: Integer
+  field :shipping_cost, type: Float
   field :active, type: Mongoid::Boolean
   validates_numericality_of :price, less_than_or_equal_to: 10.00, message: "Item Price Must be $10 or Less"
   belongs_to :seller

@@ -1,7 +1,8 @@
 class OrderItem
   include Mongoid::Document
-  field :unit_price, type: Integer
+  field :unit_price, type: Float
   field :quantity, type: Integer
+  field :shipping_cost, type: Float
   # field :total_price, type: Integer
   belongs_to :item
   belongs_to :order
@@ -23,7 +24,11 @@ class OrderItem
   end
 
   def total_price
-    unit_price * quantity
+    unit_price * quantity + shipping_cost
+  end
+
+  def ship_cost
+    item.shipping_cost
   end
 
   private
@@ -41,7 +46,9 @@ class OrderItem
 
   def finalize
     self[:unit_price] = unit_price
+    self[:shipping_cost] = ship_cost
     self[:total_price] = quantity * self[:unit_price]
+    self[:total_price] = self[:total_price]+ self[:shipping_cost]
   end
 
 
