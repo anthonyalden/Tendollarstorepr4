@@ -1,6 +1,6 @@
 class OrderItem
   include Mongoid::Document
-  # field :unit_price, type: Integer
+  field :unit_price, type: Integer
   field :quantity, type: Integer
   # field :total_price, type: Integer
   belongs_to :item
@@ -10,16 +10,16 @@ class OrderItem
 
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validate :item_present
+  # validate :item_present
   validate :order_present
 
   def unit_price
-    item.price
-    # if persisted?
-    #   self[:unit_price]
-    # else
-    #   item.price
-    # end
+    # item.price
+    if persisted?
+      self[:unit_price]
+    else
+      item.price
+    end
   end
 
   def total_price
@@ -28,13 +28,13 @@ class OrderItem
 
   private
   def item_present
-    if item.nil?
+    if self[:item].nil?
       errors.add(:item, "is not valid or is not active.")
     end
   end
 
   def order_present
-    if order.nil?
+    if self.order.nil?
       errors.add(:order, "is not a valid order.")
     end
   end
