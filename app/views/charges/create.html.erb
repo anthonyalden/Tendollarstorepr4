@@ -1,0 +1,4 @@
+<h2>Thanks, you paid <strong><%= number_to_currency((@order.total).to_f/100) %></strong>!</h2>
+
+<%= link_to "Return to Store", items_path, class: "btn btn-info btn-register btn-lg" %>
+

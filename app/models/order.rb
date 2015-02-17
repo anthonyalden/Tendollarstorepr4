@@ -1,6 +1,6 @@
 class Order
   include Mongoid::Document
-  field :subtotal, type: Integer
+  field :subtotal, type: Float
   field :tax, type: Integer
   field :shipping, type: Integer
   field :total, type: Integer

@@ -28,7 +28,10 @@ Rails.application.routes.draw do
     resources :sellers
     resources :items
     resource :cart, only: [:show]
-    resources :order_items, only: [:create, :update, :destroy]
+    resources :order_items, only: [:create, :update, :destroy] 
+    resources :orders do  
+      resources :charges
+    end
     post '/login' => 'sessions#create'
     delete '/logout' => 'sessions#destroy'
 
