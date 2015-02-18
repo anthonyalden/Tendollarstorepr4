@@ -7,7 +7,7 @@ def new
     total_amount = total_amount + ((order_item.unit_price * order_item.quantity) + order_item.shipping_cost)
     # order_item.destroy
   end
-  
+
   @order.total= (total_amount *100).floor
   # set order stauts to 2 (paid)
   @order.order_status_id = 2
@@ -24,7 +24,7 @@ def create
   @amount = @order.total
 
   customer = Stripe::Customer.create(
-    :email => 'talden@earthlink.net',
+    :email => 'sam@aol.com',
     :card  => params[:stripeToken]
   )
 
