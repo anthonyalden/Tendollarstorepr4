@@ -6,6 +6,7 @@ class Order
   field :total, type: Integer
   field :order_date, type: Date
   field :order_status_id, type: Integer
+  field :stripe_id, type: String
   before_create :set_order_status
   before_save :update_subtotal
   belongs_to :order_status
@@ -13,8 +14,9 @@ class Order
   belongs_to :buyer
 
 
+
   def subtotal
-    order_items.collect { |oi| oi.valid? ? ((oi.quantity * oi.unit_price)+oi.ship_cost) : 0 }.sum
+    order_items.collect { |oi| oi.valid? ? ((oi.quantity * oi.unit_price) + (oi.quantity * oi.ship_cost)) : 0 }.sum.round(2)
   end
 private
   def set_order_status

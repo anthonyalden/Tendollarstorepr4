@@ -26,7 +26,7 @@ class OrderItem
   end
 
   def total_price
-    unit_price * quantity + shipping_cost
+    (unit_price * quantity) + (quantity * shipping_cost)
   end
 
   def ship_cost
@@ -50,7 +50,7 @@ class OrderItem
     self[:unit_price] = unit_price
     self[:shipping_cost] = ship_cost
     self[:total_price] = quantity * self[:unit_price]
-    self[:total_price] = self[:total_price]+ self[:shipping_cost]
+    self[:total_price] = self[:total_price] + (self[:shipping_cost] * quantity)
     self[:seller] = item.seller.username
     self[:seller_id] = item.seller._id
   end

@@ -8,10 +8,10 @@ class ItemsController < ApplicationController
 	      # condtionally render buyers page or sellers page depending if 
 	      # 	seller is logged in index is seller page buyers index is buyers page
 		  if logged_in?
-		  	@items = current_user.items.where({ :$or => [ { :description => /.*#{params[:q]}.*/i }, { :item_tag => /.*#{params[:q]}.*/i } ] })
+		  	@items = current_user.items.where({ :$and => [{ :$or => [ { :description => /.*#{params[:q]}.*/i }, { :item_tag => /.*#{params[:q]}.*/i } ] }, :active => true]})
 		  	render "index"
 		  else
-		  	@items = Item.where({ :$or => [ { :description => /.*#{params[:q]}.*/i }, { :item_tag => /.*#{params[:q]}.*/i } ] })
+		  	@items = Item.where({ :$and => [{ :$or => [ { :description => /.*#{params[:q]}.*/i }, { :item_tag => /.*#{params[:q]}.*/i } ] }, :active => true]})
 		  	if current_order != nil
 		  		@order_item = current_order.order_items.new
 		  	end
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 	def create
 		
 		@item =current_user.items.new(item_params)
-		
+		@item.active = true
 		if @item.save
 			# display item index page for seller after new items is created
 		   redirect_to request.referer
@@ -66,8 +66,10 @@ class ItemsController < ApplicationController
 
 	def destroy
 		@item = Item.find(params[:id])
-		@item.destroy
-		# display item index page for seller after item is deleted
+		@item.active = false
+		@item.save
+		# @item.destroy
+		# display item index page for seller after item is made inactive
 		redirect_to items_path
 	end
 

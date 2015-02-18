@@ -18,17 +18,19 @@
 
 		<ul>
 			<% @seller.items.each do |item| %>
-				<li>
-				<%= link_to item.item_tag, item %>
-				<%= item.description %> <button type="button" class="btn btn-info btn-register btn-sm" data-toggle="modal" data-target="#editItemModal-<%=item.id%>">Edit Item</button>
-				<%= link_to "Delete #{item.item_tag}", item_path(item), method: :delete, data: {confirm: "Are you sure you want to delete #{item.item_tag}?"} %>
+				<% if item.active %>
+					<li>
+					<%= link_to item.item_tag, item %>
+					<%= item.description %> <button type="button" class="btn btn-info btn-register btn-sm" data-toggle="modal" data-target="#editItemModal-<%=item.id%>">Edit Item</button>
+					<%= link_to "Inativate #{item.item_tag}", item_path(item), method: :delete, data: {confirm: "Are you sure you want to permanently inactivate #{item.item_tag}?"} %>
 
+					
+						<%= render "sellers/itemform", item: item %>
+					</div>
+					</li>
+				<% end %> <!-- end if item.active -->
 				
-					<%= render "sellers/itemform", item: item %>
-				</div>
-				</li>
-				
-			<% end %>
+			<% end %> <!-- end @seller.items.each loop -->
 		</ul>
 
 		<nav>
