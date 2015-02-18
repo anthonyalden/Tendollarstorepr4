@@ -60,6 +60,17 @@
 <!-- br br used to move search box down into place -->
 <br>
 <br>
+
+<% if !@buyer.nil? && @buyer.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <%= @buyer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="item-margin">
 
     <!-- handles item searching -->

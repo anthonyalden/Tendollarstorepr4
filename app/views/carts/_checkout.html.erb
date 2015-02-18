@@ -1,2 +1,37 @@
 
- <%= link_to "Check Out", new_order_charge_path(current_order), class: "btn btn-info btn-register btn-lg checkout"  %>
+ <button type="button" class="btn btn-info btn-register btn-sm checkout" data-toggle="modal" data-target="#checkoutModal">Check Out</button>
+
+        <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-med">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Check Out</h2>
+              </div>
+              
+              <div class="modal-body form-align"> 
+                <%= bootstrap_form_for :buyer, url: buyers_path  do |f| %>
+                  <%= f.text_field :first_name, label: "First Name", class: "form-font" %>
+                  <%= f.text_field :last_name, label: "Last Name", class: "form-font" %>
+                  <%= f.text_field :addr1, label: "Addresss 1", class: "form-font" %>
+                  <%= f.text_field :addr2, label: "Address 2", class: "form-font" %>
+                  <%= f.text_field :city, label: "City", class: "form-font" %>
+                  <%= f.text_field :state, placeholder: "CA", label: "State", class: "form-font" %>
+                  <%= f.text_field :zip, placeholder: "99999", label: "Zip Code", class: "form-font" %>
+                  <%= f.text_field :phone, label: "Phone Number", class: "form-font" %>
+                  <%= f.text_field :email, label: "email", class: "form-font" %>
+
+                  <%= f.submit 'Save', class: "btn btn-info" %>
+                <% end %>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div> <!-- end modal content div -->
+          </div> <!-- end modal dialog div -->
+        </div> <!-- end log in modal -->
+
+
+
+
+ 

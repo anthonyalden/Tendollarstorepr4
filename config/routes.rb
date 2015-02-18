@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :orders do  
       resources :charges
     end
+    resources :buyers
     post '/login' => 'sessions#create'
     delete '/logout' => 'sessions#destroy'
 

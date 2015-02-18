@@ -7,6 +7,7 @@ class OrderItem
   # field :total_price, type: Integer
   belongs_to :item
   belongs_to :order
+  belongs_to :seller
   before_save :finalize
   accepts_nested_attributes_for :item
 
@@ -51,6 +52,7 @@ class OrderItem
     self[:total_price] = quantity * self[:unit_price]
     self[:total_price] = self[:total_price]+ self[:shipping_cost]
     self[:seller] = item.seller.username
+    self[:seller_id] = item.seller._id
   end
 
 

@@ -5,10 +5,13 @@ class Order
   field :shipping, type: Integer
   field :total, type: Integer
   field :order_date, type: Date
+  field :order_status_id, type: Integer
   before_create :set_order_status
   before_save :update_subtotal
   belongs_to :order_status
   has_many :order_items
+  belongs_to :buyer
+
 
   def subtotal
     order_items.collect { |oi| oi.valid? ? ((oi.quantity * oi.unit_price)+oi.ship_cost) : 0 }.sum

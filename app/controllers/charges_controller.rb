@@ -5,10 +5,15 @@ def new
   total_amount=0
   @order.order_items.each do |order_item|
     total_amount = total_amount + ((order_item.unit_price * order_item.quantity) + order_item.shipping_cost)
-    order_item.destroy
+    # order_item.destroy
   end
+  
   @order.total= (total_amount *100).floor
+  # set order stauts to 2 (paid)
+  @order.order_status_id = 2
   @order.save
+  session[:order_id] = nil
+
 end
 
 def create

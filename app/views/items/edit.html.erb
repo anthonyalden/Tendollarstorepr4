@@ -5,7 +5,7 @@
 <div class="item-margin">
 		<ul>
 		<!-- prints error messages from validation rules in model -->
-		    <% @item.errors.full_messages.each do |msg| %>
+		    <%= @item.errors.full_messages.each do |msg| %>
 		        <li> <%= msg %></li>
 		    <% end %>
 		</ul><br><br>

@@ -5,6 +5,23 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   helper_method :current_order
 
+  # def current_order
+  #   if !session[:order_id].nil?
+  #     @order = Order.find(session[:order_id])
+  #     if @order.order_status_id === 1
+  #       return @order
+  #     else
+  #       return nil
+  #     end
+  #   else
+  #     @order = Order.new
+  #     @order.order_status_id = 1
+  #     @order.save
+  #     return @order
+  #   end
+  # end
+
+  
   def current_order
     if !session[:order_id].nil?
       Order.find(session[:order_id])
