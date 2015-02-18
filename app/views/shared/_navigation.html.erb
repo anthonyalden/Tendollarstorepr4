@@ -25,7 +25,7 @@
 
 			<button type="button" class="btn btn-info btn-register btn-lg create-account" data-toggle="modal" data-target="#newAccountModal">Create Account</button>
 			<%= link_to "Show All Items", items_path, class: "btn btn-info btn-register btn-lg all-items-btn" %>
-			<%= link_to "My Store", root_path, class: "btn btn-info btn-register btn-lg my-store" %>
+			<%= link_to "Return to Store", root_path, class: "btn btn-info btn-register btn-lg my-store" %>
 			<% if current_order.order_status_id === 1 %> 
 				<%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-info btn-register btn-lg cart-btn" %>
 				<% end %>
