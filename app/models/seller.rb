@@ -8,6 +8,7 @@ class Seller
   field :email, type: String
   has_many :items
   has_many :orders
+  
   # validates_uniqueness_of :username  case_sensitive: false
   attr_reader :password 
 

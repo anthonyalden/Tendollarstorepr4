@@ -7,24 +7,24 @@
               </div>
 
               <div class="modal-body form-align"> 
-                <%= bootstrap_form_for :seller, url: {:controller=> 'sellers', :action => "create"} do |f| %>
+                <%= bootstrap_form_for :seller, :required => true, url: {:controller=> 'sellers', :action => "create"} do |f| %>
                     
-                    <%= f.text_field :first_name, label: "First Name" %>
+                    <%= f.text_field :first_name, :required => true, label: "First Name" %>
 
                    
-                    <%= f.text_field :last_name, label: "Last Name" %>
+                    <%= f.text_field :last_name, :required => true, label: "Last Name" %>
 
                  
-                    <%= f.text_field :phone, label: "Phone" %>
+                    <%= f.text_field :phone, :required => true, label: "Phone" %>
 
                   
-                    <%= f.text_field :email, size: "50px", label: "Email" %><br><br>
+                    <%= f.text_field :email, :required => true, size: "50px", label: "Email" %><br><br>
 
     
-                    <%= f.text_field :username, size: "30px", label: "User Name:" %>
+                    <%= f.text_field :username, :required => true, size: "30px", label: "User Name:" %>
 
                     
-                    <%= f.password_field :password, size: "30px", label: "Password" %>
+                    <%= f.password_field :password, :required => true, size: "30px", label: "Password" %>
                    
                     <%= f.submit %>
                   <% end %>

@@ -16,7 +16,7 @@
 				<h3><p> <b><%= @seller.first_name %> <%= @seller.last_name %></b> Has No Items for Sale:</p></h3>
 		<% end %>
 
-		<ul>
+		<ul class="edit-items">
 			<% @seller.items.each do |item| %>
 				<% if item.active %>
 					<li>

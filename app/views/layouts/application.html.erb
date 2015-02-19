@@ -41,14 +41,14 @@
               <div class="modal-body form-align"> 
                 <%= bootstrap_form_for :item, url: {:controller=> 'items', :action => "create"}  do |f| %>
                   
-                  <%= f.text_field :price, label: "Price", class: "form-font"%><br><br>
+                  <%= f.number_field :price, :step => 0.01, min: 0.01, max: 10.00, :required => true, label: "Price", class: "form-font"%><br><br>
                   
                   
-                  <%= f.text_area :item_tag , size: "35x3", label: "Item", class: "form-font" %>
+                  <%= f.text_area :item_tag , :required => true, size: "35x3", label: "Item", class: "form-font" %>
 
-                  <%= f.text_area :description, size: "35x3", label: "Description", class: "form-font" %>
+                  <%= f.text_area :description, :required => true, size: "35x3", label: "Description", class: "form-font" %>
 
-                  <%= f.text_field :shipping_cost, label: "Shipping Cost", class: "form-font" %>
+                  <%= f.number_field :shipping_cost, :step => 0.01, min: 0, :required => false, label: "Shipping Cost", class: "form-font" %>
 
                   <%= f.file_field :image %>
                   <%= f.submit %>
@@ -75,17 +75,17 @@
                 <%= bootstrap_form_for current_user, url: seller_path(current_user), method: :patch  do |f| %>
         
                
-                  <%= f.text_field :first_name, label: "First Name", class: "form-font" %>
+                  <%= f.text_field :first_name, :required => true, label: "First Name", class: "form-font" %>
 
-                  <%= f.text_field :last_name, label: "Last Name", class: "form-font" %>
+                  <%= f.text_field :last_name, :required => true, label: "Last Name", class: "form-font" %>
 
-                  <%= f.text_field :phone, label: "Phone Number", class: "form-font" %>
+                  <%= f.text_field :phone, :required => true, label: "Phone Number", class: "form-font" %>
 
-                  <%= f.text_field :email, label: "Email Address", class: "form-font" %>
+                  <%= f.text_field :email, :required => true, label: "Email Address", class: "form-font" %>
 
-                  <%= f.text_field :username, label: "User Name", class: "form-font" %>
+                  <%= f.text_field :username, :required => true, label: "User Name", class: "form-font" %>
 
-                  <%= f.password_field :password, label: "Password", class: "form-font" %>
+                  <%= f.password_field :password, :required => true, label: "Password", class: "form-font" %>
                   <%= f.submit %>
                 <% end %>
               </div>
