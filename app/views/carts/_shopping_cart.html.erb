@@ -20,7 +20,7 @@
 
 
 
-<% if !current_order %>
+<% if !current_order || current_order.order_status_id != 1 %>
   <p class="text-center">
     There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
   </p>

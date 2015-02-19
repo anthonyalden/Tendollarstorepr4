@@ -20,11 +20,11 @@ def create
   # Amount in cents
   
   @order = Order.find(params[:order_id])
-    
+  @buyer = Buyer.find(@order.buyer_id) 
   @amount = @order.total
 
   customer = Stripe::Customer.create(
-    :email => 'sam@aol.com',
+    :email => @buyer.buyer_email,
     :card  => params[:stripeToken]
   )
 
@@ -42,7 +42,7 @@ def create
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to charges_path
+    redirect_to cart_path
   end
 
 end

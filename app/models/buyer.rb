@@ -20,4 +20,7 @@ class Buyer
 
   has_many :orders
 
+  def buyer_email
+    self[:email]
+  end
 end
