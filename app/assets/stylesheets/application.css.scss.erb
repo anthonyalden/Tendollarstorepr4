@@ -34,6 +34,10 @@ body {
 
 }
 
+ul{
+	list-style-type: none;
+}
+
 .my-store{
 	position: relative;
 	top: 0px;
@@ -120,6 +124,10 @@ body {
 	width: 175px;
 }
 
+.price {
+	font-weight: bold;
+	font-size: 20px;
+}
 .seller-items-listing{
 	position: relative;
 	top: 20px;
@@ -139,14 +147,14 @@ body {
 .bill{
 	background-image: url("https://s3-us-west-1.amazonaws.com/carrierwave-tony/ten_dollar_bill.jpg");
 	background-repeat: no-repeat;
-	background-size: 300px;
-	height: 125px;
-	width: 300px;
+	background-size: 200px;
+	height: 83px;
+	width: 200px;
 	box-shadow: 10px 10px 5px #5E5959;
 	-webkit-box-shadow: 10px 10px 5px #5E5959;
 
 	position: relative;
-	margin-left: 430px;
+	margin-left: 65px;
 	margin-bottom: -85px;
   clip: border-box;
   transition: background-size 1.2s;
@@ -160,7 +168,7 @@ body {
 #tenstore{
 	position: relative;
 	margin-top: 100px;
-	margin-left: 425px;
+	margin-left: 20px;
 
 	font-family: 'Rock Salt'
 }
@@ -239,6 +247,10 @@ div:hover {
 	color: blue;
 }
 
+.image-border{
+	border: 5px solid gray;
+}
+
 /* used to space all text on all pages so the are not hitting the left page edge */
 .item-margin{
 
@@ -275,7 +287,15 @@ div:hover {
 	color: black;
 	text-indent: 80px;
 	margin-top: -2px;
+	font-size: 15px;
 
+}
+
+.search{
+	position: relative;
+	left: 150px;
+	top: -100px;
+	text-align: center;
 }
 
 /* used to move images to the left and their assoicated text block */
@@ -285,8 +305,9 @@ div:hover {
 }
 
 /* used to set width of item and descriptions so they don't go to end of row */
-.item-width{
+.item-display{
 	max-width: 300px;
+	font-size: 20px;
 }
 
 /*#items-show{

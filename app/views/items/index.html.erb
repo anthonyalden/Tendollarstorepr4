@@ -8,16 +8,17 @@
 <br>
 <br>
 <div class="item-margin">
+  <div class="search">
       <%= form_tag({controller: "items", action: "index"}, method: "get") do %>
-          <%= label_tag(:q, "Search for:") %>
+          
           <%= text_field_tag(:q, nil, :size=>100) %>
-          <%= submit_tag("Search") %>
+          <%= submit_tag("Search", class: "btn btn-info btn-register btn-sm") %>
       <% end %><br>
-      <h4 id="search-msg">Leave search box empty and press <b>Search</b> to display all items for sale.</h4><br>
+      <h4 id="search-msg">Leave search box empty and press <b>Search</b> to display all items for sale.</h4>
 
-
+</div>
       <% if logged_in? %>
-            <h2>Items listed for sale by: <%= current_user.first_name %> <%= current_user.last_name %></h2><br>
+            <h3>Items listed for sale by: <%= current_user.first_name %> <%= current_user.last_name %></h3><br>
       <% else %>
         <h2>User Logged Out</h2><br>
 
@@ -26,22 +27,18 @@
 
           <% if logged_in? %>
               <ul>
-              <% @items.each_slice(3) do |batch| %>
+              <% @items.each_slice(7) do |batch| %>
                 <% batch.each do |item| %>
                   <div class="batch-items" > 
                       <li>
-
-                        <b>Price:</b> <%= number_to_currency(item.price) %>
-                        
-                        <div class="item-width"><b>Item:</b> <%= link_to item.item_tag, item %><div><br>
-                        
-                        <div class="item-width"><b>description:</b> <%= item.description %> <br></div><br>
-                  
-                        <b>Shipping Cost:</b> <%= number_to_currency(item.shipping_cost) %><br><br>
                         <% if item.image.url != nil %>
-                            <%= image_tag item.image.url, size: "100x75"%><br><br>
+                            <%= image_tag item.image.url, size: "100x75", class: "image-border" %><br><br>
                         <% end %> 
 
+                        <div class="item-display"><%= link_to item.item_tag, item %><div> <br>
+                        <div class="price"><%= number_to_currency(item.price) %></div><br>
+                        
+                        
                       </li>
 
                   </div>  
