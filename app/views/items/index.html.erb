@@ -27,7 +27,7 @@
 
           <% if logged_in? %>
               <ul>
-              <% @items.each_slice(7) do |batch| %>
+              <% @items.each_slice(5) do |batch| %>
                 <% batch.each do |item| %>
                   <div class="batch-items" > 
                       <li>
