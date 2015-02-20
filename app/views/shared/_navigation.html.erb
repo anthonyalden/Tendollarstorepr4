@@ -12,6 +12,8 @@
 	  <button type="button" class="btn btn-info btn-register btn-lg" data-toggle="modal" data-target="#addItemModal">Add Item</button>
 
 	  <button type="button" class="btn btn-info btn-register btn-lg" data-toggle="modal" data-target="#editAccountModal">Edit Account</button>
+
+	  <%= link_to "Delete #{current_user.first_name} #{current_user.last_name}", seller_path(current_user), class: "btn btn-info btn-register btn-lg",method: :delete, data: {confirm: "Are you sure you want to delete #{current_user.username}?"} %>
 	 </div> <!-- end navwrapper -->
 	</nav>
 		

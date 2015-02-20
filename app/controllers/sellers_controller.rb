@@ -63,6 +63,11 @@ class SellersController < ApplicationController
 		# find all existing items user created and delete them as part of
 		#    deleting the user
 		@items = Item.where(:seller_id => current_user)
+		@order_items = OrderItem.where(:seller_id => current_user)
+		@order_items.each do |order_item|
+			order_item.destroy
+		end
+		
 		@items.destroy
 		# cancel the session for the user
 		session.delete(:user_id)

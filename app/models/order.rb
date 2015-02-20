@@ -10,8 +10,10 @@ class Order
   before_create :set_order_status
   before_save :update_subtotal
   belongs_to :order_status
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   belongs_to :buyer
+
+
 
 
 
