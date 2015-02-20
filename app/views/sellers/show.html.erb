@@ -2,6 +2,9 @@
 
 <h3 id="tenstore">The Ten Dollar Store </h3>
 
+<br>
+<br>
+<br>
 
 <div class="item-margin">
 		<% if @seller.items.length > 1 %>
@@ -15,6 +18,8 @@
 		<% if @seller.items.length == 0 %>
 				<h3><p> <b><%= @seller.first_name %> <%= @seller.last_name %></b> Has No Items for Sale:</p></h3>
 		<% end %>
+		<br>
+		
 
 		<ul class="edit-items">
 			<% @seller.items.each do |item| %>

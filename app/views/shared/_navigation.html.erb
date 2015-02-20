@@ -4,6 +4,17 @@
 	
 	<nav class="menu">
 
+		<!-- <div class="btn-group">
+		<%= link_to "Log Out", logout_path , method: 'delete', class: "btn btn-info btn-register btn-lg btn-radius1" %>
+	    <button type="button" data-toggle="dropdown" class="btn btn-info btn-register btn-lg dropdown-toggle dropdown-list">Items<span class="caret"></span></button>
+	    <ul class="dropdown-menu dropdown-selections">
+	        <li><button type="button" class="btn btn-info btn-register btn-lg" data-toggle="modal" data-target="#addItemModal">Add Item</button></li>
+	        <li class="divider"></li>
+	        <li><%= link_to "Edit Items For Sale", current_user, class: "btn btn-info btn-register btn-lg" %></li>
+	    </ul>
+
+		</div> -->
+
 	 <div class="navwrapper">
 	  <%= link_to "Log Out", logout_path , method: 'delete', class: "btn btn-info btn-register btn-lg" %>
 	  <%= link_to "Display All Seller's Items", items_path, class: "btn btn-info btn-register btn-lg" %>
