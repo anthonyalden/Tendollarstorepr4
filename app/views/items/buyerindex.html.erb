@@ -53,16 +53,7 @@
 
 </div> -->
 <h3 id="tenstore">The Ten Dollar Store </h3>
-<div class="search">
-      <!-- handles item searching -->
-      <%= form_tag({controller: "items", action: "index"}, method: "get") do %>
-         
-          <%= text_field_tag(:q, nil, :size=>100) %>
-          <%= submit_tag("Search", class: "btn btn-info btn-register btn-sm") %>
-      <% end %><br>
-      
-      <h4 id="search-msg">Leave search box empty and press <b>Search</b> to display all items for sale.</h4><br>
-  </div>
+<%= render "items/itemsearch" %>
 
 
 <% if !@buyer.nil? && @buyer.errors.any? %>
@@ -76,32 +67,5 @@
 <% end %>
 
 <div class="item-margin">
-  
-    
-
-
-
-    <ul>
-              <!-- slice allows three items to be dispalyed in a row -->
-              <% @items.each_slice(5) do |batch| %>
-                <% batch.each do |item| %>
-                  <div class="batch-items" > 
-                      <li>
-                        <% if item.image.url != nil %>
-                            <%= image_tag item.image.url, size: "100x75", class: "image-border" %><br><br>
-                        <% end %> 
-
-                        <div class="item-width item-display"><%= link_to item.item_tag, item %><div> <br>
-                        <div class="price"><%= number_to_currency(item.price) %></div><br>
-                        
-                        
-                      </li>
-
-                  </div>  
-                  
-                <% end %>
-                <!-- display a line between each group of three items and set width and shading of line between item groups -->
-                <hr size ="8px" noshade />
-              <% end %>
-              </ul>
+  <%= render "items/lineitemdisplay" %>        
 </div>

@@ -1,20 +1,24 @@
+
+<!-- all code for this page moved to application.html.erb for add new item -->
+<!-- the code below is now inactive -->
+
+
+
 <div class="bill"></div>
 <h3 id="tenstore">The Ten Dollar Store </h3>
 
 <div class="item-margin">
-		<h3 id="title">New Item</h3><br><br>
-
-		<ul>
-			<!-- prints error messages from validation rules in model -->
-		    <%= @item.errors.full_messages.each do |msg| %>
-		        <li> <%= msg %></li>
-		    <% end %>
-		</ul>
+	<h3 id="title">New Item</h3><br><br>
+	<ul>
+		<!-- prints error messages from validation rules in model -->
+	    <%= @item.errors.full_messages.each do |msg| %>
+	        <li> <%= msg %></li>
+	    <% end %>
+	</ul>
 		
-		<% if flash[:alert] %>
-		    <br><div class = "flash_msg"><%= flash[:alert] %></div>
-		<% end %>
-
+	<% if flash[:alert] %>
+	    <br><div class = "flash_msg"><%= flash[:alert] %></div>
+	<% end %>
 
 		<%= render "items/form", object: @item %>
 </div>

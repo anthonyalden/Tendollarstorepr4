@@ -8,49 +8,20 @@
 <br>
 <br>
 <div class="item-margin">
-  <div class="search">
-      <%= form_tag({controller: "items", action: "index"}, method: "get") do %>
-          
-          <%= text_field_tag(:q, nil, :size=>100) %>
-          <%= submit_tag("Search", class: "btn btn-info btn-register btn-sm") %>
-      <% end %><br>
-      <h4 id="search-msg">Leave search box empty and press <b>Search</b> to display all items for sale.</h4>
 
+  <%= render "items/itemsearch" %>
+  
+  <% if logged_in? %>
+    <h3>Items listed for sale by: <%= current_user.first_name %> <%= current_user.last_name %></h3><br>
+  <% else %>
+    <h2>User Logged Out</h2><br>
+  <% end %>
+
+
+  <% if logged_in? %>
+    <%= render "items/lineitemdisplay" %>
+  <% end %>  <!-- end if logged_in? -->
 </div>
-      <% if logged_in? %>
-            <h3>Items listed for sale by: <%= current_user.first_name %> <%= current_user.last_name %></h3><br>
-      <% else %>
-        <h2>User Logged Out</h2><br>
-
-      <% end %>
-
-
-          <% if logged_in? %>
-              <ul>
-              <% @items.each_slice(5) do |batch| %>
-                <% batch.each do |item| %>
-                  <div class="batch-items" > 
-                      <li>
-                        <% if item.image.url != nil %>
-                            <%= image_tag item.image.url, size: "100x75", class: "image-border" %><br><br>
-                        <% end %> 
-
-                        <div class="item-display"><%= link_to item.item_tag, item %><div> <br>
-                        <div class="price"><%= number_to_currency(item.price) %></div><br>
-                        
-                        
-                      </li>
-
-                  </div>  
-                  
-                <% end %>
-
-                <hr size ="8px" noshade />
-              <% end %>
-              </ul>
-
-             <% end %>  <!-- end if logged_in? -->
-  </div>
 
         
 

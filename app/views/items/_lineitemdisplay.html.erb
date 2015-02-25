@@ -1,0 +1,16 @@
+<ul>
+  <% @items.each_slice(5) do |batch| %>
+    <% batch.each do |item| %>
+      <div class="batch-items" > 
+          <li>
+            <% if item.image.url != nil %>
+                <%= image_tag item.image.url, size: "100x75", class: "image-border" %><br><br>
+            <% end %> 
+            <div class="item-display"><%= link_to item.item_tag, item %><div> <br>
+            <div class="price"><%= number_to_currency(item.price) %></div><br>  
+          </li>
+      </div>   
+    <% end %>
+    <hr size ="8px" noshade />
+  <% end %>
+</ul>

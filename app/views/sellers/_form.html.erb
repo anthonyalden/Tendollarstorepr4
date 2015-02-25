@@ -1,40 +1,40 @@
 
-        <div class="modal fade" id="newAccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-med">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2>Create Account</h2>
-              </div>
+<div class="modal fade" id="newAccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-med">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create Account</h2>
+      </div>
 
-              <div class="modal-body form-align"> 
-                <%= bootstrap_form_for :seller, :required => true, url: {:controller=> 'sellers', :action => "create"} do |f| %>
-                    
-                    <%= f.text_field :first_name, :required => true, label: "First Name" %>
+      <div class="modal-body form-align"> 
+        <%= bootstrap_form_for :seller, :required => true, url: {:controller=> 'sellers', :action => "create"} do |f| %>
+            
+            <%= f.text_field :first_name, :required => true, label: "First Name" %>
 
-                   
-                    <%= f.text_field :last_name, :required => true, label: "Last Name" %>
+           
+            <%= f.text_field :last_name, :required => true, label: "Last Name" %>
 
-                 
-                    <%= f.text_field :phone, :required => true, label: "Phone" %>
+         
+            <%= f.text_field :phone, :required => true, label: "Phone" %>
 
-                  
-                    <%= f.text_field :email, :required => true, size: "50px", label: "Email" %><br><br>
+          
+            <%= f.text_field :email, :required => true, size: "50px", label: "Email" %><br><br>
 
-    
-                    <%= f.text_field :username, :required => true, size: "30px", label: "User Name:" %>
 
-                    
-                    <%= f.password_field :password, :required => true, size: "30px", label: "Password" %>
-                   
-                    <%= f.submit %>
-                  <% end %>
-                </div>
+            <%= f.text_field :username, :required => true, size: "30px", label: "User Name:" %>
 
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div> <!-- end modal content div -->
-          </div> <!-- end modal dialog div -->
-        </div> <!-- end log in modal -->
+            
+            <%= f.password_field :password, :required => true, size: "30px", label: "Password" %>
+           
+            <%= f.submit %>
+          <% end %>
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div> <!-- end modal content div -->
+  </div> <!-- end modal dialog div -->
+</div> <!-- end log in modal -->
 
           

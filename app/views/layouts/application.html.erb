@@ -31,71 +31,71 @@
 
   
 
-        <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-med">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2>Add Item</h2>
-              </div>
+  <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-med">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add Item</h2>
+        </div>
 
-              <div class="modal-body form-align"> 
-                <%= bootstrap_form_for :item, url: {:controller=> 'items', :action => "create"}  do |f| %>
-                  
-                  <%= f.number_field :price, :step => 0.01, min: 0.01, max: 10.00, :required => true, label: "Price", class: "form-font"%><br><br>
-                  
-                  
-                  <%= f.text_area :item_tag , :required => true, size: "35x3", label: "Item", class: "form-font" %>
+        <div class="modal-body form-align"> 
+          <%= bootstrap_form_for :item, url: {:controller=> 'items', :action => "create"}  do |f| %>
+            
+            <%= f.number_field :price, :step => 0.01, min: 0.01, max: 10.00, :required => true, label: "Price", class: "form-font"%><br><br>
+            
+            
+            <%= f.text_area :item_tag , :required => true, size: "35x3", label: "Item", class: "form-font" %>
 
-                  <%= f.text_area :description, :required => true, size: "35x3", label: "Description", class: "form-font" %>
+            <%= f.text_area :description, :required => true, size: "35x3", label: "Description", class: "form-font" %>
 
-                  <%= f.number_field :shipping_cost, :step => 0.01, min: 0, :required => false, label: "Shipping Cost", class: "form-font" %>
+            <%= f.number_field :shipping_cost, :step => 0.01, min: 0, :required => false, label: "Shipping Cost", class: "form-font" %>
 
-                  <%= f.file_field :image %>
-                  <%= f.submit %>
-                <% end %>
-              </div>
+            <%= f.file_field :image %>
+            <%= f.submit %>
+          <% end %>
+        </div>
 
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div> <!-- end modal content div -->
-          </div> <!-- end modal dialog div -->
-        </div> <!-- end add item modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div> <!-- end modal content div -->
+    </div> <!-- end modal dialog div -->
+  </div> <!-- end add item modal -->
 
+
+  <!-- edit seller account modal -->
+  <div class="modal fade" id="editAccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-med">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Edit Account</h2>
+        </div>
+
+        <div class="modal-body form-align"> 
+          <%= bootstrap_form_for current_user, url: seller_path(current_user), method: :patch  do |f| %>
   
-        <!-- edit seller account modal -->
-        <div class="modal fade" id="editAccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-med">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2>Edit Account</h2>
-              </div>
+         
+            <%= f.text_field :first_name, :required => true, label: "First Name", class: "form-font" %>
 
-              <div class="modal-body form-align"> 
-                <%= bootstrap_form_for current_user, url: seller_path(current_user), method: :patch  do |f| %>
-        
-               
-                  <%= f.text_field :first_name, :required => true, label: "First Name", class: "form-font" %>
+            <%= f.text_field :last_name, :required => true, label: "Last Name", class: "form-font" %>
 
-                  <%= f.text_field :last_name, :required => true, label: "Last Name", class: "form-font" %>
+            <%= f.text_field :phone, :required => true, label: "Phone Number", class: "form-font" %>
 
-                  <%= f.text_field :phone, :required => true, label: "Phone Number", class: "form-font" %>
+            <%= f.text_field :email, :required => true, label: "Email Address", class: "form-font" %>
 
-                  <%= f.text_field :email, :required => true, label: "Email Address", class: "form-font" %>
+            <%= f.text_field :username, :required => true, label: "User Name", class: "form-font" %>
 
-                  <%= f.text_field :username, :required => true, label: "User Name", class: "form-font" %>
+            <%= f.password_field :password, :required => true, label: "Password", class: "form-font" %>
+            <%= f.submit %>
+          <% end %>
+        </div>
 
-                  <%= f.password_field :password, :required => true, label: "Password", class: "form-font" %>
-                  <%= f.submit %>
-                <% end %>
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div> <!-- end modal content div -->
-          </div> <!-- end modal dialog div -->
-        </div> <!-- end edit Account modal div -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div> <!-- end modal content div -->
+    </div> <!-- end modal dialog div -->
+  </div> <!-- end edit Account modal div -->
 <% end %> <!-- end if logged_in? -->
 
 

@@ -1,0 +1,10 @@
+<div class="search">
+  <!-- handles item searching -->
+  <%= form_tag({controller: "items", action: "index"}, method: "get") do %>
+     
+      <%= text_field_tag(:q, nil, :size=>100) %>
+      <%= submit_tag("Search", class: "btn btn-info btn-register btn-sm") %>
+  <% end %><br>
+
+  <h4 id="search-msg">Leave search box empty and press <b>Search</b> to display all items for sale.</h4><br>
+</div>
